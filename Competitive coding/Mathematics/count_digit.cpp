@@ -18,7 +18,8 @@ int countDigits(int x)
 int main() {
     
     	int number;
+		cout<<"\n Enter the Number : ";
         cin>>number;
     	
-    	cout<<countDigits(number);
+    	cout<<"No of Digits is :"<<countDigits(number);
 }
