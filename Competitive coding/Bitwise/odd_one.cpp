@@ -1,6 +1,7 @@
 #include <iostream>
 #include <vector>
 using namespace std;
+
 /*
 Odd one out :- prperty of XOR
 
@@ -12,7 +13,9 @@ x^x^x^x^x^...even times = 0
 x^x^x^x^x^...odd times = x
 
 Time Complexity :- Theta(n)
-Aux Space Complexity :- O(1)*/
+Aux Space Complexity :- O(1)
+*/
+
 int OddOneOut(vector <int> arr)
 {
     int res = 0 ;
