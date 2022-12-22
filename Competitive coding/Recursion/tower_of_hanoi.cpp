@@ -18,6 +18,8 @@ then move n-th dics from Tower A to C (i.e line 38),
 and lastly move n-1 dics from Tower B to C
 (i.e TOH(n-1, source(B), aux(A), destination(C) )) 
 
+No. of Movements : 2^n -1
+
 */
 
 void TOH(int n , char A, char B, char C)
