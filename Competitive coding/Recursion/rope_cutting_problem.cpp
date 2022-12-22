@@ -11,6 +11,10 @@ if cuts are not possible return -1
 Here,
 n : length of the rope
 a, b, c : possible cuts one can make
+
+Time Complexity :- 0(3^n)
+
+this problem can be optimized using dynamic programming
 */
 
 int MaxNo_OfCuts(int n, int a, int b, int c)
