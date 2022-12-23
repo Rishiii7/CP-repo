@@ -15,6 +15,32 @@ b = a
 a = temp
 */
 
+vector<int> ReverseArrayAlt(vector <int> arr)
+{
+    /*
+    Params :
+    arr : Integer Vector
+    
+    Returns :
+    Interger Vector
+
+    Variables :
+    start : Integer index of array
+    end : Integer index of array
+    */
+    int start  = 0;
+    int end = arr.size() - 1;
+
+    while(start < end)
+    {
+        swap(arr[start] , arr[end]);
+        start ++;
+        end --;
+    }
+
+    return arr;
+}
+
 vector <int> ReverseArray(vector <int> arr)
 {
     /*
@@ -57,6 +83,16 @@ int main()
 
     //Printing the output
     cout<<"Array after reversing : ";
+    for(int i = 0; i < arr.size(); i++)
+    {
+        cout<<arr[i]<<" ";
+    }
+
+    //reversing the array using alternate method
+    arr = ReverseArrayAlt(arr);
+
+    //Printing the output
+    cout<<"\nArray after reversing using alternate method : ";
     for(int i = 0; i < arr.size(); i++)
     {
         cout<<arr[i]<<" ";
