@@ -6,10 +6,10 @@ Problem :
 Find element in an array using Binray Search algorithm
 
 Solution:
-calculate mid index of array
-if ele at mid then return mid 
-if ele > mid then change low to mid+1, this cuts the array to arr[mid+1,high]
-else change high to mid-1, this cuts the array to arr[low:mid-1]
+1. calculate mid index of array
+2. if ele at mid then return mid 
+3. if ele > mid then change low to mid+1, this cuts the array to arr[mid+1,high]
+4. else change high to mid-1, this cuts the array to arr[low:mid-1]
 
 Iterative & Recursive Sultion ==>
 Time Complexity :- O(logn)
