@@ -17,6 +17,29 @@ Time Complexity :- O(logn)
 Aux Space Complexity :- O(1)
 Aux Space Complexity :- O(logn) -- Recursive
 
+For last Ocurrance 
+
+1. Iterative ==>
+if(mid == n-1 || arr[mid] != arr[mid +1])
+{
+    return mid;
+}
+else
+{
+    low = mid + 1;
+}
+
+2. Recursive ==>
+
+if(mid == n-1 || arr[mid+1] != arr[mid])
+{
+    return mid;
+}
+
+else
+{
+    return FirstOccurance_Recursive(arr,ele,mid+1 ,high);
+}
 */
 
 
