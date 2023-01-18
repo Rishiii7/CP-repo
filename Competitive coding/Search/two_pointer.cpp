@@ -6,6 +6,8 @@ using namespace std;
 Problem :
 Find wether their is pair for given sum is present or not
 
+Also called as Two pointer approach.
+
 Note :- Array is sorted !!
 
 solution :
