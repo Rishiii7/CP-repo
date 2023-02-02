@@ -10,7 +10,7 @@ Sort array using Selection sort.
 Noote :- Best when using lesser memmory space 
          and is not stable algorithm.
 
-Time Complexity :- O(n^2)
+Time Complexity :- theta(n^2)
 Aux Space Complexity :- O(1)
 */
 
