@@ -3,8 +3,31 @@
 #include <algorithm>
 using namespace std;
 
+/*
+Problem :
+Sort the array using Insertion Sort
+
+Idea :
+for every i-th element find the index
+in the sorted array.
+1st element is always sorted.
+
+Time complexity :- O(n^2)
+Aux Space Complexity :- O(1)
+*/
+
+
 vector<int> InsertionSort(vector<int> arr)
 {
+    /*
+    Args :
+    arr : Integer array
+    
+    Variables :
+    n : Integer -- size of array
+    key : Integer -- storing ith element
+    j : Integer -- index
+    */
     int n = arr.size();
     int key;
     int j;
