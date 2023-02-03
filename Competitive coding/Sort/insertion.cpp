@@ -17,7 +17,7 @@ Aux Space Complexity :- O(1)
 */
 
 
-vector<int> InsertionSort(vector<int> arr)
+void InsertionSort(vector<int> &arr)
 {
     /*
     Args :
@@ -46,7 +46,6 @@ vector<int> InsertionSort(vector<int> arr)
         arr[j+1] = key;
     }
     
-    return arr;
 }
 
 
@@ -69,7 +68,7 @@ int main()
     }
 
     //Insertion sort
-    arr = InsertionSort(arr);
+    InsertionSort(arr);
     cout<<"Sorted array : ";
     for (int i = 0; i < n; i++)
     {
