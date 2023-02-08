@@ -5,7 +5,7 @@ using namespace std;
 Problem : - print all the intersection of two sorted 
             array without repeating the element
 
-Time complexity :- O(n)
+Time complexity :- O(n) or O(m)
 Aux space complexity :- O(1) 
 */
 
