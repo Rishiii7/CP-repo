@@ -16,8 +16,54 @@ Different Types of Partition method :
     Time commplexity :- O(n)
     Aux Space complexity :- O(1)
     Require 1 O(n) traversal
- 
+
+3. Hoare Partition ==>
+    Time commplexity :- O(n)
+    Aux Space complexity :- O(1)
+    Require 1 O(n) traversal and less comparison than Lomuto.
 */
+
+int HoarePartition(vector <int> &arr, int l, int h, int pivot)
+{
+    /*
+    Args ::
+    arr : Integer Vector
+    l ,h : Integer -- indices of array where sorting is performed
+    pivot : Integer -- index element which get sorted
+
+    Parameters ::
+    pivot_ele : Integer -- element of pivot index
+    i, j : Integer -- indices of array 
+
+    Return ::
+    j : Integer -- arr[l:j+1] < arr[j+1:h] in short left and rigt array are sorted
+    */
+    swap(arr[l], arr[pivot]);
+    int pivot_ele = arr[l];
+
+    int i = l-1, j = h+1;
+    while (true)
+    {
+        do
+        {
+            i++;
+        } while (arr[i] < pivot_ele);
+
+        do
+        {
+            j--;
+        } while (arr[j] > pivot_ele);
+
+        if (i >= j)
+        {
+            return j;
+        }
+
+        swap(arr[i], arr[j]);   
+    }
+    
+}
+
 
 int LomutoPartition(vector <int> &arr, int l, int h, int pivot)
 {
@@ -34,8 +80,8 @@ int LomutoPartition(vector <int> &arr, int l, int h, int pivot)
     Returns ::
     Integer -- index of pivot after sorting
     */
-    int pivot_ele = arr[pivot];
-    swap(arr[h], pivot_ele);
+    swap(arr[h], arr[pivot]);
+    int pivot_ele = arr[h];
     int i = l-1;
     for (int j = l; j < h; j++)
     {
@@ -116,7 +162,15 @@ int main()
     }*/
 
     //Lamouto partition function
-    cout<<"Index at pivot : "<<LomutoPartition(arr, 0, n-1, n-1);
+    /*cout<<"Index at pivot : "<<LomutoPartition(arr, 0, n-1, n-1);
+    cout<<"Sorted array : ";
+    for(int i = 0 ; i < n ; i++)
+    {
+        cout<<arr[i]<<" ";
+    }*/
+
+    // Hoare partition function
+    cout<<"Index at which array is sorted : "<<HoarePartition(arr, 0, n-1, 0    )<<endl;
     cout<<"Sorted array : ";
     for(int i = 0 ; i < n ; i++)
     {
