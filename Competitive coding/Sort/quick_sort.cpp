@@ -65,7 +65,7 @@ int HoarePartition(vector <int> &arr, int l, int h, int pivot)
 }
 
 
-int LomutoPartition(vector <int> &arr, int l, int h, int pivot)
+int LomutoPartition(vector <int> &arr, int l, int h)
 {
     /*
     Args ::
@@ -80,8 +80,9 @@ int LomutoPartition(vector <int> &arr, int l, int h, int pivot)
     Returns ::
     Integer -- index of pivot after sorting
     */
-    swap(arr[h], arr[pivot]);
-    int pivot_ele = arr[h];
+    int pivot = h;
+    //swap(arr[h], arr[pivot]);
+    int pivot_ele = arr[pivot];
     int i = l-1;
     for (int j = l; j < h; j++)
     {
@@ -96,6 +97,27 @@ int LomutoPartition(vector <int> &arr, int l, int h, int pivot)
     return i+1;
 }
 
+void QuickSortLomutoPartition(vector <int> &arr, int l, int h)
+{
+    /*
+    Args ::
+    arr : Integer vector
+    l,h : Integer -- index range of array
+    
+    Parameters ::
+    pivot : Integer -- index at which element is sorted
+
+    Returns ::
+    None -- but array is sorted.
+    */
+    if (l<h)
+    {
+        int pivot = LomutoPartition(arr, l ,h);
+        QuickSortLomutoPartition(arr, l, pivot - 1);
+        QuickSortLomutoPartition(arr, pivot+1, h);
+    }
+    
+}
 
 void NaivePartition(vector <int> &arr, int l , int r , int pivot)
 {
@@ -170,8 +192,16 @@ int main()
     }*/
 
     // Hoare partition function
-    cout<<"Index at which array is sorted : "<<HoarePartition(arr, 0, n-1, 0    )<<endl;
+    /*cout<<"Index at which array is sorted : "<<HoarePartition(arr, 0, n-1, 0    )<<endl;
     cout<<"Sorted array : ";
+    for(int i = 0 ; i < n ; i++)
+    {
+        cout<<arr[i]<<" ";
+    }*/
+
+    // quick using lomuto partition
+    QuickSortLomutoPartition(arr, 0 , n-1);
+    cout<<"Soted array : ";
     for(int i = 0 ; i < n ; i++)
     {
         cout<<arr[i]<<" ";
