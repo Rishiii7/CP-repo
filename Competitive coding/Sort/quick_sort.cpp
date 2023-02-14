@@ -23,7 +23,7 @@ Different Types of Partition method :
     Require 1 O(n) traversal and less comparison than Lomuto.
 */
 
-int HoarePartition(vector <int> &arr, int l, int h, int pivot)
+int HoarePartition(vector <int> &arr, int l, int h)
 {
     /*
     Args ::
@@ -38,7 +38,8 @@ int HoarePartition(vector <int> &arr, int l, int h, int pivot)
     Return ::
     j : Integer -- arr[l:j+1] < arr[j+1:h] in short left and rigt array are sorted
     */
-    swap(arr[l], arr[pivot]);
+    int pivot = l;
+    //swap(arr[l], arr[pivot]);
     int pivot_ele = arr[l];
 
     int i = l-1, j = h+1;
@@ -60,6 +61,29 @@ int HoarePartition(vector <int> &arr, int l, int h, int pivot)
         }
 
         swap(arr[i], arr[j]);   
+    }
+    return j;
+    
+}
+
+void QuickSortHoarePartition(vector <int> &arr, int l , int h)
+{
+    /*
+    Args ::
+    arr : Integer vector
+    l,h : Integer -- index range of array
+    
+    Parameters ::
+    pivot : Integer -- index at which left and right array is sorted
+
+    Returns ::
+    None -- but array is sorted.
+    */
+    if (l < h)
+    {
+        int pivot = HoarePartition(arr, l , h);
+        QuickSortHoarePartition(arr, l , pivot);
+        QuickSortHoarePartition(arr, pivot+1, h);
     }
     
 }
@@ -176,31 +200,20 @@ int main()
     }
 
     // Only partition function
-    /*NaivePartition(arr , 0 , n-1 , 3);
-    cout<<"Sorted array : ";
-    for(int i = 0 ; i < n ; i++)
-    {
-        cout<<arr[i]<<" ";
-    }*/
+    //NaivePartition(arr , 0 , n-1 , 3);
 
     //Lamouto partition function
-    /*cout<<"Index at pivot : "<<LomutoPartition(arr, 0, n-1, n-1);
-    cout<<"Sorted array : ";
-    for(int i = 0 ; i < n ; i++)
-    {
-        cout<<arr[i]<<" ";
-    }*/
+    //cout<<"Index at pivot : "<<LomutoPartition(arr, 0, n-1, n-1);
+    
 
     // Hoare partition function
-    /*cout<<"Index at which array is sorted : "<<HoarePartition(arr, 0, n-1, 0    )<<endl;
-    cout<<"Sorted array : ";
-    for(int i = 0 ; i < n ; i++)
-    {
-        cout<<arr[i]<<" ";
-    }*/
+    //cout<<"Index at which array is sorted : "<<HoarePartition(arr, 0, n-1, 0    )<<endl;
 
     // quick using lomuto partition
-    QuickSortLomutoPartition(arr, 0 , n-1);
+    //QuickSortLomutoPartition(arr, 0 , n-1);
+
+    //quick using hoare partition
+    QuickSortHoarePartition(arr, 0 , n-1);
     cout<<"Soted array : ";
     for(int i = 0 ; i < n ; i++)
     {
